@@ -66,7 +66,7 @@ class TestMapBasics(unittest.TestCase):
                     d.pop(value, None)
 
             self.assertEqual(r.is_valid(), True)
-            self.assertEqual(list(sorted(d.items())), list(d.items()))
+            self.assertEqual(list(sorted(d.items())), list(r.items()))
 
 
 class TestMapInsertRemove_Helper:
