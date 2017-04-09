@@ -186,7 +186,8 @@ def rb_pop_key_recursive(node, key):
         return None, None
 
     node_pop = None
-    if key_cmp(key, node.key) == -1:
+    cmp = key_cmp(key, node.key)
+    if cmp == -1:
         if node.left is not None:
             if (not is_red(node.left)) and (not is_red(node.left.left)):
                 node = rb_move_red_to_left(node)
@@ -194,7 +195,7 @@ def rb_pop_key_recursive(node, key):
     else:
         if is_red(node.left):
             node = rb_rotate_right(node)
-        cmp = key_cmp(key, node.key)
+            cmp = key_cmp(key, node.key)
         if cmp == 0 and (node.right is None):
             return None, node
         # assert(node.right is not None)
