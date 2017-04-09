@@ -161,7 +161,7 @@ def rb_move_red_to_right(node):
 
 def rb_pop_min_recursive(node):
     if node is None:
-        return None
+        return None, None
     if node.left is None:
         return None, node
     if (not is_red(node.left)) and (not is_red(node.left.left)):
@@ -201,7 +201,7 @@ def rb_pop_key_recursive(node, key):
 
         # this part of the check is only needed to support
         # removal of key's which don't exist
-        if node.right:
+        if node.right is not None:
             if (not is_red(node.right)) and (not is_red(node.right.left)):
                 node = rb_move_red_to_right(node)
                 cmp = key_cmp(key, node.key)
